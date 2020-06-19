@@ -1,2 +1,3 @@
 # vimrc
-This is my .vimrc, I have used Plugged as my Plugin manger and made this with Theprimeagen
+All of the vimrc from ThePrimeagen(vim god)
+this is for my personal use(feel free to copy) and backup
