@@ -54,23 +54,21 @@ let g:airline_powerline_fonts = 1
 " --- vim airlines theme
 let g:airline_theme = 'wombat'
 
+" air-line
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
-
-" air-line
 " --- vim airline settings
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.colnr = ' :'
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ' :'
-  let g:airline_symbols.maxlinenr = '☰ '
-  let g:airline_symbols.dirty='⚡'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' :'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
 
 " --- vim go (polyglot) settings.
 let g:go_highlight_build_constraints = 1
@@ -151,6 +149,16 @@ nnoremap <leader>cr :CocRestart
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
+
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
 
 augroup THE_PRIMEAGEN
     autocmd!
